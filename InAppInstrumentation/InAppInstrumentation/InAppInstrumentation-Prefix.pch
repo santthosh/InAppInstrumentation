@@ -1,0 +1,21 @@
+//
+// Prefix header for all source files of the 'InAppInstrumentation' target in the 'InAppInstrumentation' project
+//
+
+#ifdef __OBJC__
+    #import <Foundation/Foundation.h>
+#endif
+
+#if defined(__has_feature) && __has_feature(objc_arc_weak)
+    #define IAI_WEAK weak
+    #define IAI_STRONG strong
+#elif defined(__has_feature)  && __has_feature(objc_arc)
+    #define IAI_WEAK __unsafe_unretained
+    #define IAI_STRONG retain
+#else
+    #define IAI_WEAK assign
+    #define IAI_STRONG retain
+#endif
+
+
+#define IAIDASSERT(xx) ((void)0)
